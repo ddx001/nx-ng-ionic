@@ -7,11 +7,10 @@ import { personCircle } from 'ionicons/icons';
 import { DataService, Message } from '../services/data.service';
 
 @Component({
-  selector: 'app-view-message',
-  templateUrl: './view-message.page.html',
-  styleUrls: ['./view-message.page.scss'],
-  standalone: true,
-  imports: [CommonModule, IonHeader, IonToolbar, IonButtons, IonBackButton, IonContent, IonItem, IonIcon, IonLabel, IonNote],
+    selector: 'app-view-message',
+    templateUrl: './view-message.page.html',
+    styleUrls: ['./view-message.page.scss'],
+    imports: [CommonModule, IonHeader, IonToolbar, IonButtons, IonBackButton, IonContent, IonItem, IonIcon, IonLabel, IonNote]
 })
 export class ViewMessagePage implements OnInit {
   public message!: Message;
