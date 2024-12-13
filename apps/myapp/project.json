@@ -13,16 +13,19 @@
         "outputPath": "dist/apps/myapp",
         "index": "apps/myapp/src/index.html",
         "browser": "apps/myapp/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": ["apps/myapp/src/polyfills.ts"],
         "tsConfig": "apps/myapp/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/myapp/public"
+            "input": "apps/myapp/src/assets",
+            "output": "assets"
           }
         ],
-        "styles": ["apps/myapp/src/styles.scss"],
+        "styles": [
+          "apps/myapp/src/global.scss",
+          "apps/myapp/src/theme/variables.scss"],
         "scripts": []
       },
       "configurations": {
@@ -30,13 +33,19 @@
           "budgets": [
             {
               "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
             },
             {
               "type": "anyComponentStyle",
               "maximumWarning": "2kb",
               "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/myapp/src/environments/environment.ts",
+              "with": "apps/myapp/src/environments/environment.prod.ts"
             }
           ],
           "outputHashing": "all"
@@ -84,6 +93,20 @@
         "port": 4200,
         "staticFilePath": "dist/apps/myapp/browser",
         "spa": true
+      }
+    },
+    "capacitor": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/myapp"
+      },
+      "configurations": {
+        "sync-android": {
+          "command": "npx capacitor sync android"
+        },
+        "open-android": {
+          "command": "npx capacitor open android"
+        }
       }
     }
   }

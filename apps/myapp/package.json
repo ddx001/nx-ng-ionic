@@ -1,0 +1,9 @@
+{
+  "name": "myapp",
+  "version": "0.0.0",
+  "devDependencies": {
+    "@capacitor/app": "../node_modules/@capacitor/app",
+    "@capacitor/cli": "../node_modules/@capacitor/cli",
+    "@capacitor/android": "../node_modules/@capacitor/android"
+  }
+}
